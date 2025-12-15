@@ -1,4 +1,4 @@
-name: Build, Test and SCA
+name: Build, Test, SCA and SAST
 on: [push]
 jobs:
   build-and-test:
@@ -12,3 +12,8 @@ jobs:
 
        - name: Run SCA 
          run: npm audit
+
+       - name: Run Bearer SAST
+         uses: bearer/bearer-action@v2
+         with:
+          exit-code: 1
