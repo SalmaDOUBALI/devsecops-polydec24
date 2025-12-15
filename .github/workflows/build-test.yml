@@ -1,4 +1,4 @@
-name: Build and Test
+name: Build, Test and SCA
 on: [push]
 jobs:
   build-and-test:
@@ -9,3 +9,6 @@ jobs:
        - run: npm install
        - run: npm run build   # Build the app
        - run: npm test       # Execute tests
+
+       - name: Run SCA 
+         run: npm audit
